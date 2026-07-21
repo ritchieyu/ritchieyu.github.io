@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport", content="width=device-width">
+		<meta name="viewport", content="width=device-width, initial-scale=1.0">
 		<meta name="author", content="Ritchie Yu">
 		<link rel="stylesheet", href="/style.css">
 	</head>
@@ -26,9 +26,9 @@
 				<div class="container">
 					<div class="image-collection">
 						<figure>
-							<img src="/media/sunny.png", alt="sunny">
-							<img src="/media/autumn.png", alt="autumn">
-							<img src="/media/snowy.png", alt="snowy">
+							<img class="lightbox-trigger", src="/media/sunny.png", alt="sunny">
+							<img class="lightbox-trigger", src="/media/autumn.png", alt="autumn">
+							<img class="lightbox-trigger", src="/media/snowy.png", alt="snowy">
 						</figure>
 						<figcaption>
 							A few scenes from my years at McGill
@@ -37,6 +37,28 @@
 				</div>
 				</div>
 		</section>
+
+		<div id="lightbox" class="lightbox">
+            <img id="lightbox-img" src="" alt="Enlarged view">
+        </div>
+
+		<script>
+			const lightbox = document.getElementById("lightbox");
+			const lightboxImg = document.getElementById('lightbox-img');
+    		const triggers = document.querySelectorAll('.lightbox-trigger');
+
+			triggers.forEach(image => {
+				image.addEventListener('click', () => {
+					lightboxImg.src = image.src;  // take image src
+					lightbox.style.display = 'flex';  // change from none to flex
+				});
+			});
+
+			// close lightbox when clicking anywhere on overlay
+			lightbox.addEventListener('click', () => {
+				lightbox.style.display = 'none';
+			});
+		</script>
 		
 	</body>
 </html>

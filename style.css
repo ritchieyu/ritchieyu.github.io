@@ -6,10 +6,11 @@ h3 {
     margin-bottom: 5px;
 }
 .box {
-  border: 5px solid white;
+  border: 5px solid whit;
   background-color: white;
-  margin-left: 20em;
-  margin-right: 20em;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 section {
@@ -62,4 +63,37 @@ img {
   min-width: 0;
   object-fit: cover;
   border-radius: 10px;
+}
+
+/* Lightbox Effect*/
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    
+    justify-content: center;
+    align-items: center;
+}
+
+/* Enlarged image inside lightbox*/
+.lightbox img {
+    max-width: 50%;
+    max-height: 90vh;  /* Prevent image from being taller than screen */
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Add cursor to clickable images */
+.lightbox-trigger {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-trigger:hover {
+    opacity: 0.9;
 }
